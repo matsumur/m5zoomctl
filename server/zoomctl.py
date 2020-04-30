@@ -17,5 +17,10 @@ def videoCtl():
   os.system("osascript -l JavaScript -e \"Application('zoom.us').activate(); const se = Application('System Events'); delay(0.1); se.keystroke('v', { using: ['command down', 'shift down']});\"")
   return render_template('index.html')
 
+@app.route('/z')
+def zoomActivate():
+  os.system("osascript -l JavaScript -e \"Application('zoom.us').activate();\"")
+  return render_template('index.html')
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0')

@@ -4,6 +4,7 @@ const char* SERVER = "http://YOUR SERVER ADDRESS:5000";
 
 const int AUDIO = 1;
 const int VIDEO = 2;
+const int ACTIVATE = 3;
 
 void setup();
 void loop();
