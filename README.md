@@ -25,7 +25,7 @@ M5Stackのプログラムがあります。[main.h](m5stack/src/main.h)の`SSID`
 
 PlatformIOなどでコンパイルしてお手持ちのM5Stackにアップロードしてください。
 
-M5Stack上の左のボタンを押すとMuteのON/OFFが、右のボタンを押すとカメラのON/OFFが切り替わります。
+M5Stack上の左のボタンを押すと音声のON/OFFが、右のボタンを押すとカメラのON/OFFが切り替わります。また、中央のボタンを押すとZoomをフォアグラウンドに呼び出します。
 
 ## どういう仕組み？
 M5Stack -(HTTP GET Request)-> [zoomctl.py](server/zoomctl.py) -(JXA)-> Zoom という流れで制御しています。
