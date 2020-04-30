@@ -5,7 +5,7 @@
 
 void setup() {
   M5.begin();
-  delay(100);
+  delay(1000);
 
   M5.Lcd.printf("Connecting to %s\n", SSID);
   WiFi.begin(SSID, PASSWD);
@@ -15,9 +15,13 @@ void setup() {
   }
   M5.Lcd.clearDisplay();
 
-  M5.Lcd.printf("WiFi Connection established.\n SSID: %s\n", SSID);
-  M5.Lcd.print("IP: ");
-  M5.Lcd.println(WiFi.localIP());
+  M5.Lcd.drawBitmap(0, 0, 320, 240, BUTTONIMG);
+
+  if(DEBUG){
+    M5.Lcd.printf("WiFi Connection established.\n SSID: %s\n", SSID);
+    M5.Lcd.print("IP: ");
+    M5.Lcd.println(WiFi.localIP());
+  }
 }
 
 void loop() {
@@ -26,7 +30,7 @@ void loop() {
     sendCmd(SERVER, AUDIO);
   }
   if (M5.BtnB.wasPressed()) {
-    
+    sendCmd(SERVER, ACTIVATE);
   }
   if (M5.BtnC.wasPressed()) {
     sendCmd(SERVER, VIDEO);
@@ -42,6 +46,9 @@ void sendCmd(const char host[], int mode) {
       break;
     case VIDEO:
       http.begin(String(host) + "/v");
+      break;
+    case ACTIVATE:
+      http.begin(String(host) + "/z");
       break;
     default:
       return;
