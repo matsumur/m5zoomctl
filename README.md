@@ -1,3 +1,6 @@
+<img src="./m5stack.jpg" width="400">
+
+
 ## これはなに
 M5Stackのボタンでリモート会議アプリZoomの音声や映像のON/OFFを切り替えるものです。MacOS専用です。
 
